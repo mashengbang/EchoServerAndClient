@@ -70,10 +70,10 @@ public class Server {
 		@Override
 		public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 			ByteBuf buf = (ByteBuf) msg;
-//			byte[] req = new byte[buf.readableBytes()];
-//			buf.readBytes(req);
-//			String body = new String(req, "UTF-8");
-			System.out.println("The time server receive order :" + buf.toString());
+			byte[] req = new byte[buf.readableBytes()];
+			buf.readBytes(req);
+			String body = new String(req, "UTF-8");
+			System.out.println("The time server receive order :" + body);
 			
 			ctx.write(buf);
 		}
